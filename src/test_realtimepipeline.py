@@ -45,23 +45,23 @@ __status__ = "Development"
 if __name__ == '__main__':
     rng = numpy.random.RandomState(23455)
 
-    # di = MSRA15Importer('../data/MSRA15/')
-    # Seq2 = di.loadSequence('P0')
-    # testSeqs = [Seq2]
+    di = MSRA15Importer('/content/drive/My Drive/KNOWLEDGE ENGINEERING/KE Semester 4/Core Course/CA2 (Matthew)/cvpr15_MSRAHandGestureDB/')
+    Seq2 = di.loadSequence('P0')
+    testSeqs = [Seq2]
 
     # di = ICVLImporter('../data/ICVL/')
     # Seq2 = di.loadSequence('test_seq_1')
     # testSeqs = [Seq2]
 
-    di = NYUImporter('../data/NYU/')
-    Seq2 = di.loadSequence('test_1')
-    testSeqs = [Seq2]
+    #di = NYUImporter('../data/NYU/')
+    #Seq2 = di.loadSequence('test_1')
+    #testSeqs = [Seq2]
 
     # load trained network
     poseNetParams = ResNetParams(type=1, nChan=1, wIn=128, hIn=128, batchSize=1, numJoints=14, nDims=3)
-    poseNetParams.loadFile = "./eval/NYU_network_prior.pkl"
+    poseNetParams.loadFile = "/content/deep-prior-pp/src/eval/MSRA_network_prior_0.pkl"
     comrefNetParams = ScaleNetParams(type=1, nChan=1, wIn=128, hIn=128, batchSize=1, resizeFactor=2, numJoints=1, nDims=3)
-    comrefNetParams.loadFile = "./eval/net_NYU_COM_AUGMENT.pkl"
+    comrefNetParams.loadFile = "/content/deep-prior-pp/src/eval/net_MSRA15_COM_AUGMENT.pkl"
     config = {'fx': 588., 'fy': 587., 'cube': (300, 300, 300)}
     # config = {'fx': 241.42, 'fy': 241.42, 'cube': (250, 250, 250)}
     # config = {'fx': 224.5, 'fy': 230.5, 'cube': (300, 300, 300)}  # Creative Gesture Camera
