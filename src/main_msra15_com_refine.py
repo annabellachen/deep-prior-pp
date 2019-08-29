@@ -177,11 +177,19 @@ if __name__ == '__main__':
     imgSizeW = train_data.shape[3]
     imgSizeH = train_data.shape[2]
     nChannels = train_data.shape[1]
-
+    test_data=numpy.ndarray.astype(test_data,dtype='float64')
+    test_data2=numpy.ndarray.astype(test_data2,dtype='float64')
+    test_data4=numpy.ndarray.astype(test_data4,dtype='float64')
+    train_data=numpy.ndarray.astype(train_data,dtype='float64')
+    train_data2=numpy.ndarray.astype(train_data2,dtype='float64')
+    train_data4=numpy.ndarray.astype(train_data4,dtype='float64')
+    val_data=numpy.ndarray.astype(val_data,dtype='float64')
+    val_data2=numpy.ndarray.astype(val_data2,dtype='float64')
+    val_data4=numpy.ndarray.astype(val_data4,dtype='float64')
     #############################################################################
     print("create network")
     batchSize = 64
-    poseNetParams = ScaleNetParams(type=1, nChan=nChannels, wIn=128, hIn=128, batchSize=batchSize,
+    poseNetParams = ScaleNetParams(type=1, nChan=nChannels, wIn=96, hIn=96, batchSize=batchSize,
                                    resizeFactor=2, numJoints=1, nDims=3)
     poseNet = ScaleNet(rng, cfgParams=poseNetParams)
 
