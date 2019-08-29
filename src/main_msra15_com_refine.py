@@ -181,7 +181,7 @@ if __name__ == '__main__':
     #############################################################################
     print("create network")
     batchSize = 64
-    poseNetParams = ScaleNetParams(type=1, nChan=nChannels, wIn=imgSizeW, hIn=imgSizeH, batchSize=batchSize,
+    poseNetParams = ScaleNetParams(type=1, nChan=nChannels, wIn=128, hIn=128, batchSize=batchSize,
                                    resizeFactor=2, numJoints=1, nDims=3)
     poseNet = ScaleNet(rng, cfgParams=poseNetParams)
 
